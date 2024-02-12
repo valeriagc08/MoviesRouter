@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movies2/pages/details.dart';
 import 'package:movies2/pages/home.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movies2/pages/profile_screen.dart';
@@ -36,6 +35,7 @@ final router= GoRouter(
             GoRoute(
                 path: '/',
                 builder: (context, state) => const MyHomePage(title: 'M O V I E S',),
+
               ),
 
           ],
@@ -45,16 +45,6 @@ final router= GoRouter(
           routes: [
             GoRoute(
                 path: '/profile',
-                routes: [
-                  GoRoute(
-                    path: 'details/:id',
-                    builder: (context, state) => DetailsScreen(
-                      id: state.pathParameters['id']!,
-                      additionalInfo:
-                          state.uri.queryParameters['additionalInfo'],
-                    ),
-                  )
-                ],
                 builder: (context, state) => const ProfileScreen()),
             GoRoute(path: '/profile/signed',builder:(context,state)=> SignedPage(),),
     
